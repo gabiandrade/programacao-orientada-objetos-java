@@ -1,0 +1,14 @@
+Você quer vender um notebook e está aceitando pagamento no cartão,
+porém existem algumas taxas da maquininha e
+você quer saber quanto você irá receber vendendo seu notebook no débito,
+no crédito à vista ou no crédito parcelado.
+Para isso, crie uma interface:
+• O nome da interface deverá ser TaxaMaquininha;
+• Deverá ter um único método chamado getValorTaxa(), que não recebe nada e devolve um double.
+As taxas são a partir de 0,95% no débito; 0,99% no crédito à vista e de 9,99% no parcelado.
+
+• A criacao da classe que implementará a interface fica a seu critério.
+
+Na classe Main deverá imprimir:
+• "Valor cobrado pela venda do Notebook no 'opcaoDePagamentoAqui'
+foi 'valorX' e você irá receber 'valorY'"
