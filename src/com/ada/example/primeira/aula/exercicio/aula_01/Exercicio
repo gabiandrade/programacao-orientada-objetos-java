@@ -10,5 +10,5 @@ As taxas são a partir de 0,95% no débito; 0,99% no crédito à vista e de 9,99
 • A criacao da classe que implementará a interface fica a seu critério.
 
 Na classe Main deverá imprimir:
-• "Valor cobrado pela venda do Notebook no 'opcaoDePagamentoAqui'
-foi 'valorX' e você irá receber 'valorY'"
+• "Valor cobrado da taxa da maquininha pela venda do Notebook no 'Debito'
+foi '28,5' e você irá receber '2971'"
