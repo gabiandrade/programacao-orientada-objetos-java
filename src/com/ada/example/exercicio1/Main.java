@@ -59,8 +59,18 @@ public class Main {
                     System.out.println("Programa Finalizado");
                     loop = false;
                 }
+
+
+                }
+            if(inputNumber == 0){
+                loop = false;
             }
         }
+
+        System.out.println("LISTANDO ARQUIVOS");
+        System.out.println("DIRETÓRIO");
+        String directory = scanner.nextLine();
+        handlerFile.listarArquivos(directory);
 
     }
 

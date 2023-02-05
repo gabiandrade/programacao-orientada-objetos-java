@@ -28,4 +28,8 @@ public class HandlerFile {
     public void salvarImagemComDiretorio(MFile mFile) {
         imageFileDatabase.saveImageFile(mFile.getPath(), mFile.getContent(), mFile.getFileName());
     }
+
+    public void listarArquivos(String directory){
+        fileDatabase.listAllFiles(directory);
+    }
 }

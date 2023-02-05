@@ -10,9 +10,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Scanner;
 
 public class FileOrchestrator extends FolderOrchestrator implements ImageFileDatabase, FileDatabase {
-
 
 
     @Override
@@ -41,7 +41,7 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
             case IMAGE -> dir = "\\images";
             default -> dir = "";
         }
-        super.createAFolder(directory+dir, fileType);
+        super.createAFolder(directory + dir, fileType);
 
         String path = directory + dir + "\\" + fileName + ".txt";
 
@@ -53,5 +53,36 @@ public class FileOrchestrator extends FolderOrchestrator implements ImageFileDat
         }
 
     }
+
+    @Override
+    public void listAllFiles(String directory) {
+//        System.out.println("[1] REMINDER \t\t[2] IMPORTANT \t\t [3] SIMPLE");
+//        Scanner tc = new Scanner(System.in);
+//        int op = tc.nextInt();
+//
+//        if (op == 1) {
+//            directory += "/reminder/";
+//        } else if (op == 2) {
+//            directory += "/important/";
+//        } else if (op == 3) {
+//            directory += "/";
+//        } else {
+//            System.out.println("INVALID OPTION");
+//            listAllFiles(directory);
+//        }
+        File file = new File(directory);
+        File[] aFile = file.listFiles();
+
+        if (aFile != null) {
+            for (File list : aFile) {
+                if (list.isFile()) {
+                    System.out.println(list.getName());
+                }
+
+            }
+        } else System.out.println("NOT FOUND FILES");
+
+    }
+
 
 }

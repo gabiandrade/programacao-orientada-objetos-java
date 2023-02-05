@@ -7,4 +7,6 @@ import java.io.IOException;
 
 public interface FileDatabase {
     void saveFile(String directory, String content, MFileAnnotationType fileType, String fileName);
+
+    void listAllFiles(String directory);
 }
