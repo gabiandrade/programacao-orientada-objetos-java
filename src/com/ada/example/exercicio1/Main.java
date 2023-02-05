@@ -4,6 +4,7 @@ import com.ada.example.exercicio1.model.MFile;
 import com.ada.example.exercicio1.model.MFileAnnotationType;
 
 import java.util.Scanner;
+import java.util.function.Function;
 
 
 public class Main {
@@ -23,6 +24,7 @@ public class Main {
         boolean loop = true;
         while (loop) {
             int inputNumber = scanner.nextInt();
+            scanner.skip("((?<!\\R)\\s)*");
             switch (inputNumber) {
                 case 1 -> {
                     System.out.println("Opção Salvar Arquivo TXT");
@@ -33,9 +35,9 @@ public class Main {
                     System.out.println("Digite o número da opção desejada");
                     int typeNumberCreateDir = scanner.nextInt();
                     switch (typeNumberCreateDir) {
-                        case 1 -> loop = createFile(scanner, handlerFile, MFileAnnotationType.REMINDER);
-                        case 2 -> loop = createFile(scanner, handlerFile, MFileAnnotationType.IMPORTANT);
-                        case 3 -> loop = createFile(scanner, handlerFile, MFileAnnotationType.SIMPLE);
+                        case 1 -> loop = createFile(handlerFile, MFileAnnotationType.REMINDER);
+                        case 2 -> loop = createFile(handlerFile, MFileAnnotationType.IMPORTANT);
+                        case 3 -> loop = createFile(handlerFile, MFileAnnotationType.SIMPLE);
                     }
                 }
                 case 2 -> {
@@ -62,14 +64,15 @@ public class Main {
 
     }
 
-    public static Boolean createFile(Scanner scanner, HandlerFile handlerFile, MFileAnnotationType fileType) {
+    public static Boolean createFile(HandlerFile handlerFile, MFileAnnotationType fileType) {
         System.out.println("Opção:" + fileType.name());
-        System.out.println("Digite o caminho do diretório: ");
-        String path = scanner.next();
-        System.out.println("Digite o conteúdo do arquivo");
-        String contentArq = scanner.next();
-        System.out.println("Digite o nome do arquivo");
-        String nameArq = scanner.next();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite o caminho do diretório: \n");
+        String path = sc.nextLine();
+        System.out.print("Digite o conteúdo do arquivo: \n");
+        String contentArq = sc.next();
+        System.out.print("Digite o nome do arquivo: \n");
+        String nameArq = sc.next();
 
         MFile mFile = new MFile();
         mFile.setType(fileType);

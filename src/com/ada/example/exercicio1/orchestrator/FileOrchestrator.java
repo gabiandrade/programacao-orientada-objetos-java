@@ -11,7 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 
-public class FileOrchestrator implements ImageFileDatabase, FileDatabase {
+public class FileOrchestrator extends FolderOrchestrator implements ImageFileDatabase, FileDatabase {
+
+
 
     @Override
     public void saveImageFile(String directory, String content, String nameFile) {
@@ -34,14 +36,17 @@ public class FileOrchestrator implements ImageFileDatabase, FileDatabase {
     public void saveFile(String directory, String content, MFileAnnotationType fileType, String fileName) {
         String dir;
         switch (fileType) {
-            case REMINDER -> dir = "reminders";
-            case IMPORTANT -> dir = "importants";
-            case IMAGE -> dir = "images";
+            case REMINDER -> dir = "\\reminders";
+            case IMPORTANT -> dir = "\\importants";
+            case IMAGE -> dir = "\\images";
             default -> dir = "";
         }
+        super.createAFolder(directory+dir, fileType);
 
-        String path = directory + "\\" + dir + "\\" + fileName + ".txt";
-        try (FileWriter writer = new FileWriter(directory + "\\" + fileName + path)) {
+        String path = directory + dir + "\\" + fileName + ".txt";
+
+
+        try (FileWriter writer = new FileWriter(path)) {
             writer.write(content);
         } catch (IOException e) {
             e.printStackTrace();
